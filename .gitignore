@@ -1,1 +1,2 @@
 *.mp4 #Ignore all mp4 video
+*.npz #Ignore all .npz files

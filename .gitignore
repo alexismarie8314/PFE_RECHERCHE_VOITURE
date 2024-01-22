@@ -2,3 +2,12 @@
 *.mp4 
 #Ignore all .npz files
 *.npz 
+
+#ignpre all .pyc files
+*.pyc
+__pycache__/
+
+#Ignore all .DS_Store files
+.DS_Store
+```
+    

@@ -9,7 +9,7 @@ import datetime
 
 #tensorboard --logdir logs/fit
 
-log_dir="logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+log_dir="accident_anticipation/logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 
 #Retriving the data :   
 

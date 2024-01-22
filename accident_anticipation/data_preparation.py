@@ -5,12 +5,13 @@ from tensorflow.keras.utils import to_categorical
 
 
 class prepare_data:
-    def __init__(self, number_of_items,dataset_path="Dataset/CarCrash/df_for_training.parquet"):
-        self.number_of_items=number_of_items
+    def __init__(self, number_of_items=3801,dataset_path="Dataset/CarCrash/df_for_training.parquet"):
+        self.number_of_items=min(number_of_items,3801) #Number o1 items to be used for training and testing, max is 3801
         self.dataset_path=dataset_path
         
         self.data=pd.read_parquet(self.dataset_path).reset_index().iloc[:self.number_of_items]
         self.X_train,self.X_test,self.y_train,self.y_test=self.split_data()
+        
        
     def split_data(self):
         X_train, X_test, y_train, y_test = train_test_split(self.data.drop(["accident_frame"],axis=1), self.data["accident_frame"], test_size=0.2, random_state=42)
@@ -54,6 +55,9 @@ class prepare_data:
         self.y_test=self.encode_y(self.y_test)
         return self.y_test
     
+    def get_all_data(self):
+        return self.get_X_train(),self.get_X_test(),self.get_y_train(),self.get_y_test()
+    
 if __name__=="__main__":
-    X_train,X_test,y_train,y_test=prepare_data(1000).get_X_train(),prepare_data(1000).get_X_test(),prepare_data(1000).get_y_train(),prepare_data(1000).get_y_test()
+    X_train,X_test,y_train,y_test=prepare_data().get_all_data()
     print(X_train.shape,X_test.shape,y_train.shape,y_test.shape)

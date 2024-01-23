@@ -1,11 +1,30 @@
 import cv2
 import numpy as np
-
+import os
 
 
 class model_testing:
     
     def __init__(self, model_weights="YOLO/yolov4.weights", model_config="YOLO/yolov4.cfg", video_path="../Dataset/CarCrash/videos/Normal/000002.mp4"):
+        #verifier si le fichier des poids existe :
+        if  not os.path.isfile("YOLO/yolov4.weights"):
+            print("Le fichier des poids n'existe pas !")
+            #   wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights
+            print("Téléchargement des poids...")
+            os.system("wget https://github.com/AlexeyAB/darknet/releases/download/darknet_yolo_v3_optimal/yolov4.weights")
+            
+        if not os.path.isfile("YOLO/yolov4.cfg"):
+            print("Le fichier de configuration n'existe pas !")
+            #   wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4.cfg
+            print("Téléchargement du fichier de configuration...")
+            os.system("wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/yolov4.cfg")
+        
+        if not os.path.isfile("YOLO/coco.names"):
+            print("Le fichier des classes n'existe pas !")
+            #   wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/coco.names
+            print("Téléchargement du fichier des classes...")
+            os.system("wget https://raw.githubusercontent.com/AlexeyAB/darknet/master/cfg/coco.names")
+            
         
         self.net=cv2.dnn.readNet(model_config, model_weights)
         
@@ -59,7 +78,6 @@ class model_testing:
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
 
-        # Libérer les ressources
         self.video.release()
         cv2.destroyAllWindows()
 

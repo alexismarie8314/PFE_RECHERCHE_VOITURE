@@ -18,7 +18,7 @@ class accident_anticipation_model():
         # Ajouter des couches Conv2D et MaxPooling2D
         # Remarque : Tu dois choisir le nombre et la taille des filtres en fonction de tes données
         # Première couche Conv2D et MaxPooling2D
-        model.add(TimeDistributed(Conv2D(32, (3, 3), activation='relu', padding='same'), input_shape=(30, 19, 6, 1)))
+        model.add(TimeDistributed(Conv2D(32, (3, 3), activation='relu', padding='same'), input_shape=(30, 19, 6, 1)))# J'ai modifié la taille du filtre et ajouté le padding
         model.add(TimeDistributed(MaxPooling2D(2, 2)))
 
         # Deuxième couche Conv2D avec un filtre plus petit ou padding

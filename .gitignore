@@ -14,3 +14,5 @@ __pycache__/
 #ignore test.ipynb
 test.ipynb
 reconnaissance_d_image/reconnaissance_d_image_tests.ipynb
+
+*.weights

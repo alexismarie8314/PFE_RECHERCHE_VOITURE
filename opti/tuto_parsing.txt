@@ -1,0 +1,9 @@
+Pour parser un graphe rendez-vous sur ce site : https://www.openstreetmap.org/export
+
+Appuyez sur : Sélectionner manuellement une autre zone
+
+Sélectionner une zone sur la carte à parser pour en récupérer le graphe
+
+Cliquez sur API overpass et mettez le fichier dans le  dossier map.
+
+Puis lancez le programme python pour mettre à jour les deux csv.

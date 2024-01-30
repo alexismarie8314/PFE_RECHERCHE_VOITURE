@@ -7,6 +7,7 @@
 *.jpg
 *.json
 *.exec
+*.pt
 
 #ignpre all .pyc files
 *.pyc

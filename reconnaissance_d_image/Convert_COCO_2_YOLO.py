@@ -62,7 +62,7 @@ class COCO2YOLO:
             'train': 'images/train2017',  # train images (relative to 'path')
             'val': 'images/val2017',  # val images (relative to 'path')
             'test': 'images/test2017',  # test images (optional)
-            'names': list(self.class_names.values())
+            'names': self.class_names
         }
 
         # Write the YAML dataset config file

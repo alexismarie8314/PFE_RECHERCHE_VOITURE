@@ -9,6 +9,8 @@
 *.exec
 *.pt
 
+Dataset/DFG_traffic_signal/JPEGImages/*
+
 #ignpre all .pyc files
 *.pyc
 __pycache__/

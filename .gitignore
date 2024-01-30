@@ -2,6 +2,11 @@
 *.mp4 
 #Ignore all .npz files
 *.npz 
+#Ignore .png files
+*.png
+*.jpg
+*.json
+*.exec
 
 #ignpre all .pyc files
 *.pyc
@@ -9,17 +14,13 @@ __pycache__/
 
 #Ignore all .DS_Store files
 .DS_Store
-```
+
 
 #ignore test.ipynb
 test.ipynb
 reconnaissance_d_image/reconnaissance_d_image_tests.ipynb
 fine_tune_YOLOv8.ipynb
 
-#Ignore .png files
-*.png
-*.jpg
-*.json
-*.exec
+
 
 

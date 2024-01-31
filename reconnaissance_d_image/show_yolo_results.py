@@ -4,36 +4,45 @@ import cv2
 
 
 class YOLO_Results() : 
-    def __init__(self, video_path="../Dataset/CarCrash/videos/Normal/000100.mp4",model = 'yolov8n.pt'):
+    def __init__(self, video_path="../Dataset/CarCrash/videos/Normal/000100.mp4",output_video_path="../Dataset/CarCrash/videos/detected_video/000100.mp4",model = 'yolov8n.pt'):
         self.model = YOLO(model)
         self.cap = cv2.VideoCapture(video_path)
+        self.video_path=video_path
+        self.output_video_path=output_video_path
     
-    def show_results(self):
-        # Loop through the video frames
-            while self.cap.isOpened():
-                # Read a frame from the video
-                success, frame = self.cap.read()
+    def process_video( self, display=True):
+        # Open the input video
+        cap = cv2.VideoCapture(self.input_video_path)
 
-                if success:
-                    # Run YOLOv8 tracking on the frame, persisting tracks between frames
-                    results = self.model.track(frame, persist=True)
+        # Get video properties
+        width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+        height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        fps = cap.get(cv2.CAP_PROP_FPS)
 
-                    # Visualize the results on the frame
-                    annotated_frame = results[0].plot()
+        # Define the codec and create VideoWriter object
+        fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Codec for .mp4 format
+        out = cv2.VideoWriter(self.output_video_path, fourcc, fps, (width, height))
 
-                    # Display the annotated frame
-                    cv2.imshow("YOLOv8 Tracking", annotated_frame)
+        while cap.isOpened():
+            ret, frame = cap.read()
+            if not ret:
+                break
 
-                    # Break the loop if 'q' is pressed
-                    if cv2.waitKey(1) & 0xFF == ord("q"):
-                        break
-                else:
-                    # Break the loop if the end of the video is reached
+            # Your existing object detection and bounding box drawing code
+            results = model.track(frame, persist=True)
+
+            # Visualize the results on the frame
+            annotated_frame = results[0].plot()
+            # Write the frame with bounding boxes to output video
+            out.write(annotated_frame)
+
+            # Optionally display the frame (comment out if not needed)
+            if display:
+                cv2.imshow('Frame', annotated_frame)
+
+                # Exit on pressing 'q'
+                if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
-
-            # Release the video capture object and close the display window
-            self.cap.release()
-            cv2.destroyAllWindows()
             
 if __name__=="__main__":
     model=YOLO_Results()

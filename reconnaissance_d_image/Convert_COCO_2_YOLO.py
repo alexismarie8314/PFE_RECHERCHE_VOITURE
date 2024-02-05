@@ -164,3 +164,28 @@ class COCO2YOLO:
                     cnt+=1
         if cnt==0:
             print('no error')
+            
+            
+if __name__ == '__main__':
+    dataset_path = '/DFG-tsd-aug-annot-json'  # The path to the directory containing train.json and test.json
+    output_path = 'L/JPEGImages'  # The directory to save YOLO annotations and config
+
+    # Create an instance of the class
+    coco2yolo = COCO2YOLO(dataset_path, output_path)
+    # Convert annotations for training and testing
+    coco2yolo.convert_annotations(os.path.join(dataset_path, 'train.json')) # Training annotations
+    coco2yolo.convert_annotations(os.path.join(dataset_path, 'test.json'))  # Testing annotations
+    
+    coco2yolo.test_YOLOY_txt_file_before_moving()
+    
+    # Generate YOLO dataset config file using the class names extracted from test.json
+    config_path = coco2yolo.generate_yolo_config()
+
+    # Organize the dataset according to the generated YAML file
+    coco2yolo.organize_dataset(config_path) # Move images and labels to the appropriate directories
+    coco2yolo.test_each_pic_has_txt()   
+    coco2yolo.test_each_txt_has_pic()
+
+    # Check the output directory for the generated YOLO annotation files and dataset_config.yaml
+    print(f"YOLO formatted annotations are saved in: {output_path}")
+    print("number of class is ", len(list(coco2yolo.class_names)))

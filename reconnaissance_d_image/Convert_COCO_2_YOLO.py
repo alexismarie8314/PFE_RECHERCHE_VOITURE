@@ -1,5 +1,5 @@
-import os
 import yaml
+import os
 import json
 import shutil
 import pandas as pd
@@ -48,7 +48,17 @@ class COCO2YOLO:
                 w = ann['bbox'][2] / width
                 h = ann['bbox'][3] / height
                 # Adjust for 0-indexing
-                class_id = ann['category_id'] - 1
+                class_id = ann['category_id']
+                #replace neg value by 0
+                if x_center<0:
+                    x_center=0
+                if y_center<0:
+                    y_center=0
+                if w<0:
+                    w=0
+                if h<0:
+                    h=0 
+
                 yolo_annotations.append(f"{class_id} {x_center} {y_center} {w} {h}")
 
             # Write annotations to file
@@ -62,7 +72,9 @@ class COCO2YOLO:
             'train': 'images/train2017',  # train images (relative to 'path')
             'val': 'images/val2017',  # val images (relative to 'path')
             'test': 'images/test2017',  # test images (optional)
-            'names': self.class_names
+            #class names au format yolo
+                
+            'names': self.class_names,  # class names
         }
 
         # Write the YAML dataset config file
@@ -90,17 +102,17 @@ class COCO2YOLO:
                 if os.path.exists(os.path.join(self.output_path,elt.replace('.jpg','.txt'))):
                     df.loc[len(df.index)] = [elt,elt.replace('.jpg','.txt'),elt.replace('.jpg','')]
 
-        train, test = train_test_split(df, test_size=0.2)
-        val, test = train_test_split(test, test_size=0.5)
+        train, test = train_test_split(df, test_size=0.2,random_state=42)
+        val, test = train_test_split(test, test_size=0.5,random_state=42)
         for index, row in train.iterrows():
             shutil.move(os.path.join(self.output_path,row['image_name']),os.path.join(self.output_path,'images/train2017'),copy_function=shutil.copy2)
-            shutil.move(os.path.join(self.output_path,row['label_file_name']),os.path.join(self.output_path,'images/train2017'),copy_function=shutil.copy2)
+            shutil.move(os.path.join(self.output_path,row['label_file_name']),os.path.join(self.output_path,'labels/train2017'),copy_function=shutil.copy2)
         for index, row in val.iterrows():
             shutil.move(os.path.join(self.output_path,row['image_name']),os.path.join(self.output_path,'images/val2017'),copy_function=shutil.copy2)
-            shutil.move(os.path.join(self.output_path,row['label_file_name']),os.path.join(self.output_path,'images/val2017'),copy_function=shutil.copy2)
+            shutil.move(os.path.join(self.output_path,row['label_file_name']),os.path.join(self.output_path,'labels/val2017'),copy_function=shutil.copy2)
         for index, row in test.iterrows():
             shutil.move(os.path.join(self.output_path,row['image_name']),os.path.join(self.output_path,'images/test2017'),copy_function=shutil.copy2)
-            shutil.move(os.path.join(self.output_path,row['label_file_name']),os.path.join(self.output_path,'images/test2017'),copy_function=shutil.copy2)
+            shutil.move(os.path.join(self.output_path,row['label_file_name']),os.path.join(self.output_path,'labels/test2017'),copy_function=shutil.copy2)
 
     def test_YOLOY_txt_file_before_moving(self):
         count=0
@@ -116,17 +128,17 @@ class COCO2YOLO:
         cnt=0
         for elt in os.listdir(os.path.join(self.output_path,'images/train2017')):
             if elt.endswith('.jpg'):
-                if not os.path.exists(os.path.join(self.output_path,'images/train2017',elt.replace('.jpg','.txt'))):
+                if not os.path.exists(os.path.join(self.output_path,'labels/train2017',elt.replace('.jpg','.txt'))):
                     print('error, no txt file for image '+elt)
                     cnt+=1
         for elt in os.listdir(os.path.join(self.output_path,'images/val2017')):
             if elt.endswith('.jpg'):
-                if not os.path.exists(os.path.join(self.output_path,'images/val2017',elt.replace('.jpg','.txt'))):
+                if not os.path.exists(os.path.join(self.output_path,'labels/val2017',elt.replace('.jpg','.txt'))):
                     print('error, no txt file for image '+elt)
                     cnt+=1
         for elt in os.listdir(os.path.join(self.output_path,'images/test2017')):
             if elt.endswith('.jpg'):
-                if not os.path.exists(os.path.join(self.output_path,'images/test2017',elt.replace('.jpg','.txt'))):
+                if not os.path.exists(os.path.join(self.output_path,'labels/test2017',elt.replace('.jpg','.txt'))):
                     print('error, no txt file for image '+elt)
                     cnt+=1
         if cnt==0:
@@ -135,38 +147,20 @@ class COCO2YOLO:
     def test_each_txt_has_pic(self):
         """ verifier que chaque txt des dossier trai2017,val2017,test2017 a une image correspondante """
         cnt=0
-        for elt in os.listdir(os.path.join(self.output_path,'images/train2017')):
+        for elt in os.listdir(os.path.join(self.output_path,'labels/train2017')):
             if elt.endswith('.txt'):
                 if not os.path.exists(os.path.join(self.output_path,'images/train2017',elt.replace('.txt','.jpg'))):
                     print('error, no jpg file for txt '+elt)
                     cnt+=1
-        for elt in os.listdir(os.path.join(self.output_path,'images/val2017')):
+        for elt in os.listdir(os.path.join(self.output_path,'labels/val2017')):
             if elt.endswith('.txt'):
                 if not os.path.exists(os.path.join(self.output_path,'images/val2017',elt.replace('.txt','.jpg'))):
                     print('error, no jpg file for txt '+elt)
                     cnt+=1
-        for elt in os.listdir(os.path.join(self.output_path,'images/test2017')):
+        for elt in os.listdir(os.path.join(self.output_path,'labels/test2017')):
             if elt.endswith('.txt'):
                 if not os.path.exists(os.path.join(self.output_path,'images/test2017',elt.replace('.txt','.jpg'))):
                     print('error, no jpg file for txt '+elt)
                     cnt+=1
         if cnt==0:
             print('no error')
-            
-if __name__==   "__main__":
-    dataset_path = '../Dataset/DFG_traffic_signal/DFG-tsd-aug-annot-json'  # The path to the directory containing train.json and test.json
-    output_path = '/Users/lucabankofski/Documents_local/PFE_RECHERCHE_VOITURE/Dataset/DFG_traffic_signal/JPEGImages'  # The directory to save YOLO annotations and config
-
-    # Create an instance of the class
-    coco2yolo = COCO2YOLO(dataset_path, output_path)
-
-    # Convert annotations for training and testing
-    coco2yolo.convert_annotations(os.path.join(dataset_path, 'train.json'))
-    coco2yolo.convert_annotations(os.path.join(dataset_path, 'test.json'))
-    coco2yolo.test_YOLOY_txt_file_before_moving()
-    config_path = coco2yolo.generate_yolo_config()
-    coco2yolo.organize_dataset(config_path)
-    coco2yolo.test_each_pic_has_txt()
-    coco2yolo.test_each_txt_has_pic()
-    print(f"YOLO formatted annotations are saved in: {output_path}")
-    print("number of class is ", len(list(coco2yolo.class_names)))

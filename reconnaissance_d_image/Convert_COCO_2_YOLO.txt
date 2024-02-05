@@ -1,0 +1,3 @@
+Python script to prepare the data for suiting YOLO training format. Dowload the data from https://www.vicos.si/resources/dfg/
+downloa  DFG-tsd-aug-annot-json.zip file and JPEGImages.tar.bz2
+

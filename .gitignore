@@ -26,5 +26,7 @@ fine_tune_YOLOv8.ipynb
 classnames.txt
 Dataset/DFG_traffic_signal/
 
+.DS_Store
+
 
 

@@ -28,5 +28,7 @@ Dataset/DFG_traffic_signal/
 
 *.DS_Store
 
+# ignore les fichiers json sous n'importe quel répertoire cache
+**/cache/*.json
 
 

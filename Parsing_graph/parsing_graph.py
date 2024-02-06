@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import numpy as np
 
 # Charger le fichier OSM
-tree = ET.parse('map/map_lyon.osm')
+tree = ET.parse('Parsing_graph/map/map_bischoffsheim')
 root = tree.getroot()
 
 # Créer un graphe dirigé avec networkx
@@ -49,7 +49,7 @@ for way in root.findall(".//way"):
     speed_tag = way.find(".//tag[@k='maxspeed']")
     speed_value = speed_tag.get('v').split()[0] if speed_tag is not None and speed_tag.get('v').split()[0].isdigit() else DEFAULT_SPEED
     speed = int(speed_value) if speed_value.isdigit() else DEFAULT_SPEED
-        
+
     way_id = way.get('id')
     nodes = [nd.get('ref') for nd in way.findall(".//nd")]
     G.add_edges_from(zip(nodes[:-1], nodes[1:]), id=way_id, color=edge_color, type=edge_type, speed=speed)
@@ -183,5 +183,5 @@ def export_to_csv(option = 'none'):
     print("../Sources/Edge_list.csv saved")
 
 
-#draw_graph()
-export_to_csv('oriented')
+draw_graph()
+# export_to_csv('oriented')

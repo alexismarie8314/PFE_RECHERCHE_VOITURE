@@ -1,20 +1,24 @@
-# Welcome to our project.
-CarCrash contain dataset from https://github.com/Cogito2012/CarCrashDataset?tab=readme-ov-file 
-@InProceedings{BaoMM2020,
-    author = {Bao, Wentao and Yu, Qi and Kong, Yu},
-    title  = {Uncertainty-based Traffic Accident Anticipation with Spatio-Temporal Relational Learning},
-    booktitle = {ACM Multimedia Conference},
-    month  = {May},
-    year   = {2020}
-}
+# Welcome to CarCrash Dataset
 
+![Car Crash](https://example.com/car_crash_image.jpg)
 
-DFG signal traffic dataset is available at https://www.vicos.si/resources/dfg : 
- @article{Tabernik2019ITS,
-    author = {Tabernik, Domen and Sko{\v{c}}aj, Danijel},
-    journal = {IEEE Transactions on Intelligent Transportation Systems},
-    title = {{Deep Learning for Large-Scale Traffic-Sign Detection and Recognition}},
-    year = {2019},
-    doi={10.1109/TITS.2019.2913588}, 
-    ISSN={1524-9050}
- }
+This repository contains the CarCrash dataset utilized in the research project titled "Uncertainty-based Traffic Accident Anticipation with Spatio-Temporal Relational Learning" presented at the ACM Multimedia Conference in May 2020.
+
+## Attribution
+
+If you use this dataset in your work, please cite the following paper:
+
+- **Title**: Uncertainty-based Traffic Accident Anticipation with Spatio-Temporal Relational Learning
+- **Authors**: Wentao Bao, Qi Yu, Yu Kong
+- **Publication**: ACM Multimedia Conference, May 2020
+- **Paper Link**: [Here](https://github.com/Cogito2012/CarCrashDataset?tab=readme-ov-file)
+
+## DFG Signal Traffic Dataset
+
+Additionally, we provide access to the DFG signal traffic dataset used in our research. It is available at the following link:
+
+- **Dataset Link**: [DFG Signal Traffic Dataset](https://www.vicos.si/resources/dfg)
+- **Paper**: Deep Learning for Large-Scale Traffic-Sign Detection and Recognition
+- **Authors**: Domen Tabernik, Danijel Skočaj
+- **Journal**: IEEE Transactions on Intelligent Transportation Systems, 2019
+- **DOI**: [10.1109/TITS.2019.2913588](https://doi.org/10.1109/TITS.2019.2913588)

@@ -5,7 +5,7 @@ import os
 
 class model_testing:
     
-    def __init__(self, model_weights="YOLO/yolov4.weights", model_config="YOLO/yolov4.cfg", video_path="../Dataset/CarCrash/videos/Normal/000002.mp4"):
+    def __init__(self, model_weights="YOLO/yolov4.weights", model_config="YOLO/yolov4.cfg", video_path="../Dataset/CarCrash/videos/Normal/000100.mp4"):  
         #verifier si le fichier des poids existe :
         if  not os.path.isfile("YOLO/yolov4.weights"):
             print("Le fichier des poids n'existe pas !")

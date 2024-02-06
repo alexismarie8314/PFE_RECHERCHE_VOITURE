@@ -1,7 +1,5 @@
 # Welcome to CarCrash Dataset
 
-![Car Crash](https://example.com/car_crash_image.jpg)
-
 This repository contains the CarCrash dataset utilized in the research project titled "Uncertainty-based Traffic Accident Anticipation with Spatio-Temporal Relational Learning" presented at the ACM Multimedia Conference in May 2020.
 
 ## Attribution

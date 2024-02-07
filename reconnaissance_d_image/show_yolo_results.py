@@ -1,19 +1,11 @@
 from ultralytics import YOLO
 import cv2
 
-
-
-class YOLO_Results() : 
-    def __init__(self, video_path="../Dataset/CarCrash/videos/Normal/000100.mp4",output_video_path="../Dataset/CarCrash/videos/detected_video/000100.mp4",model = 'yolov8n.pt'):
-        self.model = YOLO(model)
-        self.cap = cv2.VideoCapture(video_path)
-        self.video_path=video_path
-        self.output_video_path=output_video_path
-    
-    def process_video( self, display=True):
+model = YOLO('yolov8n.pt')
+def process_video( input_video_path, output_video_path, display=True, model='yolov8n.pt'):
         # Open the input video
-        cap = cv2.VideoCapture(self.input_video_path)
-
+        cap = cv2.VideoCapture(input_video_path)
+        model = YOLO(model)
         # Get video properties
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
@@ -21,7 +13,7 @@ class YOLO_Results() :
 
         # Define the codec and create VideoWriter object
         fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # Codec for .mp4 format
-        out = cv2.VideoWriter(self.output_video_path, fourcc, fps, (width, height))
+        out = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
         while cap.isOpened():
             ret, frame = cap.read()
@@ -43,7 +35,14 @@ class YOLO_Results() :
                 # Exit on pressing 'q'
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break
-            
-if __name__=="__main__":
-    model=YOLO_Results()
-    model.show_results()
+
+        # Release everything when done
+        cap.release()
+        out.release()
+        cv2.destroyAllWindows()
+
+# Usage example
+input_video_path = '../Dataset/CarCrash/videos/Crash-1500/000293.mp4'
+output_video_path = '../Dataset/CarCrash/videos/detected_video/crash_000293.mp4'
+
+process_video(input_video_path, output_video_path, display=True)

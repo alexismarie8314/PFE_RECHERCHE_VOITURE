@@ -1,0 +1,151 @@
+
+0: 384x640 2 persons, 4 cars, 188.4ms
+Speed: 3.2ms preprocess, 188.4ms inference, 1.4ms postprocess per image at shape (1, 3, 384, 640)
+
+[W NNPACK.cpp:61] Could not initialize NNPACK! Reason: Unsupported hardware.
+0: 384x640 2 persons, 4 cars, 129.9ms
+Speed: 1.3ms preprocess, 129.9ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 101.2ms
+Speed: 1.0ms preprocess, 101.2ms inference, 0.8ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 114.4ms
+Speed: 1.1ms preprocess, 114.4ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 102.3ms
+Speed: 1.0ms preprocess, 102.3ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 103.8ms
+Speed: 1.1ms preprocess, 103.8ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 103.7ms
+Speed: 1.1ms preprocess, 103.7ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 100.1ms
+Speed: 1.5ms preprocess, 100.1ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 105.6ms
+Speed: 1.0ms preprocess, 105.6ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 103.3ms
+Speed: 1.2ms preprocess, 103.3ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 5 cars, 108.1ms
+Speed: 1.2ms preprocess, 108.1ms inference, 0.8ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 5 cars, 111.9ms
+Speed: 0.9ms preprocess, 111.9ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 5 cars, 109.9ms
+Speed: 1.0ms preprocess, 109.9ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 5 cars, 112.9ms
+Speed: 1.2ms preprocess, 112.9ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 5 cars, 101.2ms
+Speed: 1.1ms preprocess, 101.2ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 5 cars, 130.6ms
+Speed: 1.1ms preprocess, 130.6ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 106.0ms
+Speed: 1.2ms preprocess, 106.0ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 109.8ms
+Speed: 1.1ms preprocess, 109.8ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 101.8ms
+Speed: 1.0ms preprocess, 101.8ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 114.5ms
+Speed: 1.1ms preprocess, 114.5ms inference, 17.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 136.1ms
+Speed: 1.0ms preprocess, 136.1ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 120.8ms
+Speed: 1.1ms preprocess, 120.8ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 99.3ms
+Speed: 1.1ms preprocess, 99.3ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 96.4ms
+Speed: 1.0ms preprocess, 96.4ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 104.5ms
+Speed: 1.1ms preprocess, 104.5ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 4 persons, 4 cars, 99.5ms
+Speed: 7.7ms preprocess, 99.5ms inference, 0.8ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 4 persons, 4 cars, 133.0ms
+Speed: 1.1ms preprocess, 133.0ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 3 persons, 4 cars, 127.9ms
+Speed: 1.2ms preprocess, 127.9ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 131.9ms
+Speed: 1.2ms preprocess, 131.9ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 139.2ms
+Speed: 1.3ms preprocess, 139.2ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 121.7ms
+Speed: 1.1ms preprocess, 121.7ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 101.0ms
+Speed: 1.0ms preprocess, 101.0ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 100.7ms
+Speed: 1.2ms preprocess, 100.7ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 103.1ms
+Speed: 1.0ms preprocess, 103.1ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 106.7ms
+Speed: 1.2ms preprocess, 106.7ms inference, 1.3ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 89.5ms
+Speed: 1.0ms preprocess, 89.5ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 101.9ms
+Speed: 1.3ms preprocess, 101.9ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 2 persons, 4 cars, 104.0ms
+Speed: 1.0ms preprocess, 104.0ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 103.3ms
+Speed: 1.1ms preprocess, 103.3ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 112.4ms
+Speed: 1.1ms preprocess, 112.4ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 142.3ms
+Speed: 1.2ms preprocess, 142.3ms inference, 0.8ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 131.2ms
+Speed: 1.1ms preprocess, 131.2ms inference, 1.4ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 143.4ms
+Speed: 1.3ms preprocess, 143.4ms inference, 1.2ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 125.3ms
+Speed: 1.1ms preprocess, 125.3ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 116.5ms
+Speed: 1.0ms preprocess, 116.5ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 96.3ms
+Speed: 1.1ms preprocess, 96.3ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 1 person, 5 cars, 91.2ms
+Speed: 0.9ms preprocess, 91.2ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 5 cars, 90.0ms
+Speed: 0.9ms preprocess, 90.0ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 5 cars, 98.5ms
+Speed: 0.9ms preprocess, 98.5ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+
+0: 384x640 5 cars, 99.1ms
+Speed: 0.9ms preprocess, 99.1ms inference, 1.1ms postprocess per image at shape (1, 3, 384, 640)

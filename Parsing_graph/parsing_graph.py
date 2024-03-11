@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 import numpy as np
 
 # Charger le fichier OSM
-tree = ET.parse('Parsing_graph/map/map_bischoffsheim')
+tree = ET.parse('Sources/map/map_bischoffsheim')
 root = tree.getroot()
 
 # Créer un graphe dirigé avec networkx
@@ -183,5 +183,5 @@ def export_to_csv(option = 'none'):
     print("../Sources/Edge_list.csv saved")
 
 
-draw_graph()
+draw_graph("type")
 # export_to_csv('oriented')

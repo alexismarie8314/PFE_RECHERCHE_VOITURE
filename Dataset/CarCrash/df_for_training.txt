@@ -1,3 +1,0 @@
-dataframe containing path to the npz file corresponging to the vidéo  
-and the frame where the accideent occured, if an accident occured. 
-It containes only ego_involved accident

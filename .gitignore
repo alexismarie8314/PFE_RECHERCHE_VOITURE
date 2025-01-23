@@ -9,7 +9,7 @@
 *.exec
 *.pt
 
-Dataset/DFG_traffic_signal/JPEGImages/*
+anticipation_accident/Dataset/DFG_traffic_signal/JPEGImages/*
 
 #ignpre all .pyc files
 *.pyc
@@ -21,10 +21,10 @@ __pycache__/
 
 #ignore test.ipynb
 test.ipynb
-reconnaissance_d_image/reconnaissance_d_image_tests.ipynb
+anticipation_accident/reconnaissance_d_image/reconnaissance_d_image_tests.ipynb
 fine_tune_YOLOv8.ipynb
 classnames.txt
-Dataset/DFG_traffic_signal/
+anticipation_accident/Dataset/DFG_traffic_signal/
 
 *.DS_Store
 
